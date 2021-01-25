@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -9,9 +10,10 @@ import { AddressComponent } from "./profile/info/address/address.component";
 import { InfoComponent } from "./profile/info/info.component";
 import { CheckboxComponent } from "./profile/checkbox/checkbox.component";
 import { ProjectsTasksComponent } from "./profile/projects-tasks/projects-tasks.component";
+import { SimpleFieldComponent } from "./shared/simple.input";
 
 @NgModule({
-	imports: [BrowserModule, ReactiveFormsModule, FormsModule],
+	imports: [CommonModule, BrowserModule, ReactiveFormsModule, FormsModule],
 	declarations: [
 		AppComponent,
 		ProfileComponent,
@@ -20,7 +22,8 @@ import { ProjectsTasksComponent } from "./profile/projects-tasks/projects-tasks.
 		CheckboxComponent,
 		InfoComponent,
 		AddressComponent,
-		CreditComponent
+		CreditComponent,
+		SimpleFieldComponent
 	],
 	bootstrap: [AppComponent]
 })

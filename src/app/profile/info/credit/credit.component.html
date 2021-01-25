@@ -1,11 +1,5 @@
 <ng-container [formGroup]="controlContainer.control">
-	<div class="row">
-		<label for="Full Name"> Card name </label>
-		<input type="text" formControlName="cardName" class="">
-	</div>
-
-	<div class="row">
-		<label for="Full Name"> CVV </label>
-		<input type="number" formControlName="cvv" class="">
-	</div>
+	<app-simple-field [type]="'text'" formControlName="cardName" [displayValue]="'Card name'"></app-simple-field>
+	<app-simple-field [type]="'number'"  formControlName="cvv" [displayValue]="'CVV'"></app-simple-field>
 </ng-container>
+

@@ -9,8 +9,8 @@ export class FieldControl implements OnInit, OnDestroy {
 	protected destroy$ = new Subject<void>();
 	valueControl = new FormControl();
 	onTouched: Function;
-	propagateChange = (_: any) => console.log("propagateChange");
-	propagateBlur = (_: any) => console.log("propagateBlur");
+	propagateChange = (_: any) => {};
+	propagateBlur = (_: any) => {};
 
 	ngOnInit(): void {
 		this.valueControl.valueChanges.pipe(

@@ -1,11 +1,4 @@
 <ng-container [formGroup]="controlContainer.control">
-	<div class="row">
-		<label for="Full Name"> Street name </label>
-		<input type="text" formControlName="street" class="">
-	</div>
-
-	<div class="row">
-		<label for="Full Name"> ZIP </label>
-		<input type="number" formControlName="zip" class="">
-	</div>
+	<app-simple-field [type]="'text'" formControlName="street" [displayValue]="'Street name'"></app-simple-field>
+	<app-simple-field [type]="'number'" formControlName="zip" [displayValue]="'ZIP'"></app-simple-field>
 </ng-container>

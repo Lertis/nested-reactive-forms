@@ -5,8 +5,11 @@ import { ngValueAccessorProvide } from "../../common";
 
 @Component({
   selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-	styleUrls: ['./checkbox.component.scss'],
+	template: `
+	<div class="row">
+		<label for="Full Name"> Dispay </label>
+		<input type="checkbox" [formControl]="valueControl" class="">
+	</div>`,
 	providers: [ngValueAccessorProvide(CheckboxComponent)]
 })
 export class CheckboxComponent extends FieldControl implements OnInit, OnDestroy, ControlValueAccessor {
