@@ -1,0 +1,9 @@
+<div class="container">
+	<form [formGroup]="nestedForm" (ngSubmit)="onSubmit()">
+		<app-name formControlName="name"></app-name>
+		<app-projects-tasks formGroupName="projectsTasks"></app-projects-tasks>
+		<app-info formGroupName="info"></app-info>
+		<app-checkbox formControlName="checkbox"></app-checkbox>
+		<button type="submit" [disabled]="nestedForm.invalid">Console</button>
+	</form>
+</div>
