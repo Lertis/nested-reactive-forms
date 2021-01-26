@@ -8,9 +8,9 @@ import { FormFieldsValidator } from "../form.validator";
 	selector: 'app-simple-field',
 	template: `
 	<div class="row">
-	<label for="Full Name"> {{displayValue}} </label>
-	<input [type]="type" [formControl]="valueControl" class="">
-</div>
+		<label for="Full Name"> {{displayValue}} </label>
+		<input [type]="type" [formControl]="valueControl" class="">
+	</div>
 `,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	providers: [

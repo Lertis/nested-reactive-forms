@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { ControlContainer, ControlValueAccessor, FormControl, FormGroup } from "@angular/forms";
-import { ngValueAccessorProvide } from "../../common";
+import { ControlContainer, FormControl, FormGroup } from "@angular/forms";
 
 @Component({
 	selector: 'app-info',
-	templateUrl: './info.component.html',
-	styleUrls: ['./info.component.scss'],
-	providers: [ngValueAccessorProvide(InfoComponent)]
+	templateUrl: './info.component.html'
 })
-export class InfoComponent implements ControlValueAccessor {
+export class InfoComponent {
 	infoForm = new FormGroup({
 		address: new FormGroup({
 			street: new FormControl(""),
@@ -20,17 +17,5 @@ export class InfoComponent implements ControlValueAccessor {
 		})
 	});
 
-	onTouched: Function;
-
 	constructor(readonly controlContainer: ControlContainer) { }
-
-	writeValue(val: any): void {
-		val && this.infoForm.setValue(val, { emitEvent: false });
-	}
-	registerOnChange(fn: () => void): void {
-		this.infoForm.valueChanges.subscribe(fn);
-	}
-	registerOnTouched(fn: () => void): void {
-		this.onTouched = fn;
-	}
 }

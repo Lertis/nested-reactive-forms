@@ -29,7 +29,6 @@ export class ProfileComponent {
 	constructor() {
 		this.nestedForm.valueChanges.subscribe((form) => {
 			console.log(form);
-			console.log(`Valid: ${this.nestedForm.valid}`);
 		});
 	}
 

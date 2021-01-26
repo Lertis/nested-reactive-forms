@@ -1,10 +1,4 @@
 <ng-container [formGroup]="controlContainer.control">
-	<div class="row">
-		<label for="Full Name"> Project name </label>
-		<input type="text" formControlName="project" class="">
-	</div>
-	<div class="row">
-		<label for="Full Name"> Task name </label>
-		<input type="text" formControlName="task" class="">
-	</div>
+	<app-simple-field [type]="'text'" formControlName="project" [displayValue]="'Project name'"></app-simple-field>
+	<app-simple-field [type]="'text'"  formControlName="task" [displayValue]="'Task name'"></app-simple-field>
 </ng-container>

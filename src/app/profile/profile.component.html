@@ -1,6 +1,6 @@
 <div class="container">
 	<form [formGroup]="nestedForm" (ngSubmit)="onSubmit()">
-		<app-name formControlName="name"></app-name>
+		<app-simple-field [type]="'text'" formControlName="name" [displayValue]="'Name'"></app-simple-field>
 		<app-projects-tasks formGroupName="projectsTasks"></app-projects-tasks>
 		<app-info formGroupName="info"></app-info>
 		<app-checkbox formControlName="checkbox"></app-checkbox>
