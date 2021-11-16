@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ControlValueAccessor } from "@angular/forms";
-import { FieldControl } from "../../field.control";
+import { FieldControlDirective } from "../../field.control";
 import { ngValueAccessorProvide } from "../../common";
 
 @Component({
-  selector: 'app-checkbox',
+	selector: "app-checkbox",
 	template: `
 	<div class="row">
 		<label for="Full Name"> Dispay </label>
@@ -12,7 +12,7 @@ import { ngValueAccessorProvide } from "../../common";
 	</div>`,
 	providers: [ngValueAccessorProvide(CheckboxComponent)]
 })
-export class CheckboxComponent extends FieldControl implements OnInit, OnDestroy, ControlValueAccessor {
+export class CheckboxComponent extends FieldControlDirective implements OnInit, OnDestroy, ControlValueAccessor {
 	constructor() {
 		super();
 	}

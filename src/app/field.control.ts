@@ -5,10 +5,10 @@ import { filter, map, pairwise, takeUntil } from "rxjs/operators";
 import { isNullOrUndefined } from "./common";
 
 @Directive()
-export class FieldControl implements OnInit, OnDestroy {
+export class FieldControlDirective implements OnInit, OnDestroy {
 	protected destroy$ = new Subject<void>();
 	valueControl = new FormControl();
-	onTouched: Function;
+	onTouched: () => void;
 	propagateChange = (_: any) => {};
 	propagateBlur = (_: any) => {};
 

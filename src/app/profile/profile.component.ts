@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
-	selector: 'app-profile',
-	templateUrl: './profile.component.html',
-	styleUrls: ['./profile.component.scss']
+	selector: "app-profile",
+	templateUrl: "./profile.component.html",
+	styleUrls: ["./profile.component.scss"]
 })
 export class ProfileComponent {
 	nestedForm: FormGroup = new FormGroup({

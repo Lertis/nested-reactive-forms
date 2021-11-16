@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AppComponent } from "./app.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { CreditComponent } from "./profile/info/credit/credit.component";
 import { AddressComponent } from "./profile/info/address/address.component";

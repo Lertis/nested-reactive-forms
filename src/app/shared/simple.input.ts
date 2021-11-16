@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
 import { ControlValueAccessor, ValidationErrors, Validator } from "@angular/forms";
 import { ngValueAccessorProvide, ngValueValidatorsProvide } from "../common";
-import { FieldControl } from "../field.control";
+import { FieldControlDirective } from "../field.control";
 import { FormFieldsValidator } from "../form.validator";
 
 @Component({
-	selector: 'app-simple-field',
+	selector: "app-simple-field",
 	template: `
 	<div class="row">
 		<label for="Full Name"> {{displayValue}} </label>
@@ -18,7 +18,7 @@ import { FormFieldsValidator } from "../form.validator";
 		ngValueValidatorsProvide(SimpleFieldComponent)
 	]
 })
-export class SimpleFieldComponent extends FieldControl implements OnInit, ControlValueAccessor, Validator {
+export class SimpleFieldComponent extends FieldControlDirective implements OnInit, ControlValueAccessor, Validator {
 
 	@Input() displayValue!: string;
 	@Input() type: "text" | "number" = "text";
