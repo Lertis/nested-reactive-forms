@@ -12,9 +12,9 @@ export class AppComponent implements OnInit {
 		this.init();
 	}
 
-	addPoint() {
+	addPoint(v: number) {
 		if (this.chart) {
-			this.chart.addPoint(Math.floor(Math.random() * 10));
+			this.chart.addPoint(v);
 		} else {
 			alert('init chart, first!');
 		}
@@ -52,21 +52,21 @@ export class AppComponent implements OnInit {
 				type: 'line',
 				zoomType: 'x',
 				events: {
-					redraw: function () {
-						console.log('x0');
-					},
-					selection: function (event) {
-						console.log(event.xAxis);
-						console.log(event.yAxis);
-						return true;
+					selection: function (e) {
+						const x_min = e.xAxis[0].min;
+						const x_max = e.xAxis[0].max;
+						console.log(`Selection x: form ${x_min} to ${x_max}`);
+						console.log(this);
+						console.log(`X data ${this.series[0].data}`);
+						return false;
 					},
 				},
 			},
 			title: {
-				text: 'Linechart'
+				text: 'Linechart',
 			},
 			credits: {
-				enabled: false
+				enabled: false,
 			},
 			series: [
 				{
@@ -76,10 +76,10 @@ export class AppComponent implements OnInit {
 				},
 			],
 		});
-		chart.addPoint(4);
 		this.chart = chart;
-		chart.addPoint(5);
-		setTimeout(() => chart.addPoint(6), 20);
+		for (let index = 0; index < 15; index++) {
+			chart.addPoint(Math.floor(Math.random() * 10 * index));
+		}
 		chart.ref$.subscribe(console.log);
 	}
 }
