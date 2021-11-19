@@ -98,17 +98,3 @@ export class AppComponent implements OnInit {
 	}
 }
 
-function selection(event: Highcharts.ChartSelectionContextObject): boolean {
-	const xMin = event.xAxis[0].min;
-	const xMax = event.xAxis[0].max;
-	const selectedPoints = []
-	Highcharts.each(this.series, series => {
-		Highcharts.each(series.points, point => {
-			if (point.x >= xMin && point.x <= xMax) {
-				selectedPoints.push(point);
-			}
-		});
-	});
-	console.log(selectedPoints);
-	return false;
-}
