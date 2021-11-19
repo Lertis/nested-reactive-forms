@@ -49,8 +49,14 @@ export class AppComponent implements OnInit {
 	}
 
 	init() {
-		var innerFunctionToHackThis = (selectedPoints: any[]) => {
-			console.log(`Selected Points: ${selectedPoints}`);
+		var innerFunctionToHackThis = (selectedPoints: any) => {
+			const indexes = [];
+			selectedPoints.forEach(el => indexes.push(el.index));
+			const values = [];
+			for (const [_, value] of Object.entries(indexes)) {
+				values.push(this.chart.ref.series[0]["processedYData"][value]);
+			}
+			alert(`Selected Points: ${JSON.stringify(values)}`);
 		};
 
 		const chart = new Chart({
