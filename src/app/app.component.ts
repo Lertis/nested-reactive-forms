@@ -1,23 +1,33 @@
 import { Component, OnInit } from "@angular/core";
 import { Chart } from "angular-highcharts";
 
+import * as Highcharts from "highcharts";
+
 @Component({
 	selector: "app-root",
 	templateUrl: "./app.component.html"
 })
 export class AppComponent implements OnInit {
+	showDialog = false;
+	Highcharts: typeof Highcharts = Highcharts;
+	chartOptions: Highcharts.Options = {
+		chart: {
+			type: 'line',
+			zoomType: 'x',
+
+		},
+		series: [
+			{
+				type: "line",
+				data: [1, 2, 3, 4, 5],
+			}
+		]
+	};
 	chart: Chart;
+
 
 	ngOnInit() {
 		this.init();
-	}
-
-	addPoint(v: number) {
-		if (this.chart) {
-			this.chart.addPoint(v);
-		} else {
-			alert('init chart, first!');
-		}
 	}
 
 	addSerie() {
@@ -38,26 +48,28 @@ export class AppComponent implements OnInit {
 		}, true, true);
 	}
 
-	removePoint() {
-		this.chart.removePoint(this.chart.ref.series[0].data.length - 1);
-	}
-
-	removeSerie() {
-		this.chart.removeSeries(this.chart.ref.series.length - 1);
-	}
-
 	init() {
+		var innerFunctionToHackThis = (selectedPoints: any[]) => {
+			console.log(`Selected Points: ${selectedPoints}`);
+		};
+
 		const chart = new Chart({
 			chart: {
 				type: 'line',
 				zoomType: 'x',
 				events: {
-					selection: function (e) {
-						const x_min = e.xAxis[0].min;
-						const x_max = e.xAxis[0].max;
-						console.log(`Selection x: form ${x_min} to ${x_max}`);
-						console.log(this);
-						console.log(`X data ${this.series[0].data}`);
+					selection: function (event: Highcharts.ChartSelectionContextObject) {
+						const xMin = event.xAxis[0].min;
+						const xMax = event.xAxis[0].max;
+						const selectedPoints = []
+						Highcharts.each(this.series, series => {
+							Highcharts.each(series.points, point => {
+								if (point.x >= xMin && point.x <= xMax) {
+									selectedPoints.push(point);
+								}
+							});
+						});
+						innerFunctionToHackThis(selectedPoints);
 						return false;
 					},
 				},
@@ -72,14 +84,25 @@ export class AppComponent implements OnInit {
 				{
 					name: 'Line 1',
 					type: "line",
-					data: [1, 2, 3]
+					data: [1, 3, 8, 5, 2, 5, 9]
 				},
 			],
 		});
 		this.chart = chart;
-		for (let index = 0; index < 15; index++) {
-			chart.addPoint(Math.floor(Math.random() * 10 * index));
-		}
-		chart.ref$.subscribe(console.log);
 	}
+}
+
+function selection(event: Highcharts.ChartSelectionContextObject): boolean {
+	const xMin = event.xAxis[0].min;
+	const xMax = event.xAxis[0].max;
+	const selectedPoints = []
+	Highcharts.each(this.series, series => {
+		Highcharts.each(series.points, point => {
+			if (point.x >= xMin && point.x <= xMax) {
+				selectedPoints.push(point);
+			}
+		});
+	});
+	console.log(selectedPoints);
+	return false;
 }

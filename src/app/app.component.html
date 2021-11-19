@@ -1,7 +1,8 @@
 <!-- <app-profile></app-profile> -->
-<button (click)="init()">Init</button>
-<button (click)="addSerie()">Add Serie</button>
-<button (click)="removeSerie()">Remove Serie</button>
-<button (click)="addPoint()">Add Point</button>
-<button (click)="removePoint()">Remove Point</button>
 <div [chart]="chart"></div>
+<highcharts-chart
+	[Highcharts]="Highcharts"
+	[chart]="chart"
+	[options]="chartOptions"
+	style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>

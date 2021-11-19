@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { ChartModule } from "angular-highcharts";
+import { HighchartsChartModule } from "highcharts-angular";
 
 import { AppComponent } from "./app.component";
 import { CheckboxComponent } from "./profile/checkbox/checkbox.component";
@@ -14,7 +15,7 @@ import { ProjectsTasksComponent } from "./profile/projects-tasks/projects-tasks.
 import { SimpleFieldComponent } from "./shared/simple.input";
 
 @NgModule({
-	imports: [CommonModule, BrowserModule, ReactiveFormsModule, FormsModule, ChartModule],
+	imports: [CommonModule, BrowserModule, ReactiveFormsModule, FormsModule, ChartModule, HighchartsChartModule],
 	declarations: [
 		AppComponent,
 		ProfileComponent,
